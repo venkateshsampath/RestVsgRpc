@@ -15,7 +15,7 @@ public class Client {
         var faker = new Faker();
 
         // Iterate through for test
-        var iterations = 100;
+        var iterations = 1000;
         long start = System.currentTimeMillis();
         for (int i = 0; i < iterations; i ++) {
             var result = stub.send(Message.newBuilder()

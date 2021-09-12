@@ -13,6 +13,44 @@ public class ProcessExecutor implements CommandLineRunner {
 
     @Override
     public void run(String...args) {
-        logger.info(String.format("Application started with command-line arguments: {} . \n To kill this application, press Ctrl + C.", Arrays.toString(args)));
+        if (target != null) {
+            logger.info("Application started with target: " + target + " \n To kill this application, press Ctrl + C.");
+            WebClient webClient = WebClient.builder()
+                    .baseUrl(target + "/v1/create")
+                    .build();
+
+            var faker = new Faker();
+            long start = System.currentTimeMillis();
+
+            var iterations = 1000;
+            for(int i = 0; i < iterations; i++) {
+                var msg = new Message();
+                var car = new Car();
+                car.setMake(faker.company().name());
+                car.setModel(faker.esports().team());
+                car.setTrim(faker.commerce().productName());
+                car.setColor(faker.color().name());
+                car.setYear(faker.number().numberBetween(1990, 2021));
+                car.setMileage(faker.number().numberBetween(10_000, 200_000));
+                var driver = new Driver();
+                driver.setFirstname(faker.name().firstName());
+                driver.setLastname(faker.name().lastName());
+                driver.setDriverId(faker.idNumber().valid());
+
+                msg.setCar(car);
+                msg.setDriver(driver);
+
+                var result = webClient.post()
+                        .bodyValue(msg)
+                        .retrieve()
+                        .bodyToMono(String.class)
+                        .block();
+                System.out.println("Result Status: " + result);
+            }
+
+            long end = System.currentTimeMillis();
+            var time = end - start;
+            System.out.println("Total Processing time for " + iterations + " grpc messages was " + time + "ms");
+        }
     }
 }
