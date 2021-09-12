@@ -32,8 +32,8 @@ dependencies {
     implementation 'io.grpc:grpc-netty-shaded:1.40.1'
     compileOnly 'org.apache.tomcat:annotations-api:6.0.53' // necessary for Java 9+
 
-    // https://mvnrepository.com/artifact/commons-cli/commons-cli
     implementation group: 'commons-cli', name: 'commons-cli', version: '1.4'
+    implementation group: 'com.github.javafaker', name: 'javafaker', version: '0.15'
 
 
     // Use JUnit Jupiter API for testing.
