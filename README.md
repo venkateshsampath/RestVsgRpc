@@ -6,16 +6,16 @@ creating it, resulting in roughly 200 entities being written and read from a rem
 
 ## TODO
 
-- [ ] Define shared spec that REST API and gRPC will test with (moderate size)
-- [ ] Rest API server with GET/POST endpoints
-- [ ] Rest API client that calls itself
-- [ ] Rest API client takes CLI args to target
-- [ ] Rest API client is wrapped in timer, prints out result time
+- [X] Define shared spec that REST API and gRPC will test with (moderate size)
+- [X] Rest API server with GET/POST endpoints
+- [X] Rest API client that calls itself
+- [X] Rest API client takes CLI args to target
+- [X] Rest API client is wrapped in timer, prints out result time
 ---------------------------
-- [ ] gRPC server with accept/read endpoints
-- [ ] gRPC client that calls itself
-- [ ] gRPC client that takes CLI args to target
-- [ ] gRPC client is wrapped in timer, prints out result time
+- [X] gRPC server with accept/read endpoints
+- [X] gRPC client that calls itself
+- [X] gRPC client that takes CLI args to target
+- [X] gRPC client is wrapped in timer, prints out result time
 ---------------------------
 - [ ] Build script results in runnable binary
 - [ ] Deploy in remote EC2, call from local and test timing to do X requests
@@ -24,3 +24,7 @@ creating it, resulting in roughly 200 entities being written and read from a rem
 
 - [ ] Add writeup into seperate README file
 - [ ] Write article for publish with simple results
+
+### gRPC
+
+    protoc --plugin=protoc-gen-grpc-java=C:\protoc-3.17.3\bin\protoc-gen-grpc-java-1.40.1.exe -I="." --java_out=./grpc-svc/src/main/java --grpc-java_out=./grpc-svc/src/main/java .\message.proto
