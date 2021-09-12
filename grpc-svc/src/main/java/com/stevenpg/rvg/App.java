@@ -22,7 +22,7 @@ public class App {
             new Server().startServer();
         } else {
             // Run the Client
-            System.out.println("client");
+            new Client().executeClient();
         }
     }
 }
