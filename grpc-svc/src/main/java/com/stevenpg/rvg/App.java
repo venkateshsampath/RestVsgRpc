@@ -3,12 +3,26 @@
  */
 package com.stevenpg.rvg;
 
-public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
+import org.apache.commons.cli.*;
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+import java.io.IOException;
+
+public class App {
+
+    public static void main(String[] args) throws ParseException, IOException, InterruptedException {
+
+        Options options = new Options();
+        options.addOption(new Option("s", "useServer", false, "Whether to run the server or the client. Uses server by default"));
+
+        CommandLineParser parser = new DefaultParser();
+        CommandLine cmd = parser.parse(options, args);
+
+        if (cmd.hasOption("s")) {
+            // Run the Server
+            new Server().startServer();
+        } else {
+            // Run the Client
+            System.out.println("client");
+        }
     }
 }
