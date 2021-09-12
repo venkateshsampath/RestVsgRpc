@@ -26,7 +26,7 @@ public class ProcessExecutor implements CommandLineRunner {
             var faker = new Faker();
             long start = System.currentTimeMillis();
 
-            var iterations = 1000;
+            var iterations = 5000;
             for(int i = 0; i < iterations; i++) {
                 var msg = new Message();
                 var car = new Car();

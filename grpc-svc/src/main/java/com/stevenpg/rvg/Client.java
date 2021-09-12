@@ -7,7 +7,7 @@ import io.grpc.ManagedChannelBuilder;
 public class Client {
 
     public void executeClient() {
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8080)
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("ec2-23-20-142-115.compute-1.amazonaws.com", 8080)
                 .usePlaintext()
                 .build();
 
@@ -15,7 +15,7 @@ public class Client {
         var faker = new Faker();
 
         // Iterate through for test
-        var iterations = 1000;
+        var iterations = 5000;
         long start = System.currentTimeMillis();
         for (int i = 0; i < iterations; i ++) {
             var result = stub.send(Message.newBuilder()
