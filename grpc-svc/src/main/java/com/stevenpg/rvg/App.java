@@ -5,7 +5,7 @@ package com.stevenpg.rvg;
 
 public class App {
     public String getGreeting() {
-        return "Hello World!";
+        return "Hello world.";
     }
 
     public static void main(String[] args) {

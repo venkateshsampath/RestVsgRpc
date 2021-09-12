@@ -1,4 +1,6 @@
 syntax = "proto3";
+option java_multiple_files = true;
+package com.stevenpg.rvg;
 
 message Message {
 
@@ -19,4 +21,14 @@ message Message {
 
     Car car = 1;
     Driver driver = 2;
+}
+
+message Result {
+
+  string status = 1;
+
+}
+
+service MessageService {
+  rpc send(Message) returns (Result);
 }
