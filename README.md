@@ -1,4 +1,5 @@
 # RestVsgRpc
+Article Reference: https://dev.to/stevenpg/grpc-vs-rest-simple-performance-test-228m 
 A repository containing a deployable client/server sample for REST and gRPC using Java for comparison and demonstration purposes.
 
 The goal is to publish 100 entites to a database, and GET the entity after
